@@ -63,7 +63,7 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  git z extract
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,5 +101,5 @@ export AM_HOME=/home/ics/ics2018/nexus-am
 export NAVY_HOME=/home/ics/ics2018/navy-apps
 
 source $(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')
-source ~/.config/zsh/incr*.zsh
+#source ~/.config/zsh/incr*.zsh
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

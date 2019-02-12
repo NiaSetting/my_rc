@@ -1,7 +1,7 @@
 set background=dark
-if has("autocmd") "用不上
-  filetype plugin indent on
-endif
+""if has("autocmd") "用不上
+""  filetype plugin indent on
+""endif
 set showcmd
 set showmatch
 set ignorecase
@@ -94,9 +94,9 @@ colorscheme my
 
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
 set laststatus=2
-" 自动补全
+
 imap <TAB> <C-X><C-N>
-" 保存折叠
+" 自动补全
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
@@ -123,8 +123,11 @@ set updatetime=400
 ""else
 ""  let g:gitgutter_sign_column_always = 1
 ""endif
+
 au VimLeave * silent mkview
 au VimEnter * silent loadview
+" 保存折叠
+
 au VimEnter * :GitGutterLineHighlightsEnable
 hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
 " an added line
@@ -149,3 +152,4 @@ vnoremap p "ap
 nnoremap p "ap
 vnoremap d "ad
 nnoremap d "ad
+set pastetoggle=<F11>
