@@ -1,7 +1,4 @@
 set background=dark
-""if has("autocmd") "用不上
-""  filetype plugin indent on
-""endif
 set showcmd
 set showmatch
 set ignorecase
@@ -9,7 +6,6 @@ set smartcase
 set incsearch
 set autowrite
 set hidden
-set mouse=a
 
 setlocal noswapfile " 不要生成swap文件
 set bufhidden=hide " 当buffer被丢弃的时候隐藏它
@@ -42,8 +38,6 @@ syntax enable
 syntax on
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
-set tags=/home/ics/tags
-
 
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin
 set enc=utf8
@@ -55,7 +49,6 @@ language messages zh_CN.utf-8
 set nu
 colorscheme monokai
 
-set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
 set laststatus=2
 
 imap <TAB> <C-X><C-N>
@@ -65,49 +58,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-\ 'ctermfgs': ['51','219','230','111','99','33','201','118'],
-\}
-
-let g:gitgutter_max_signs=6000
-let g:gitgutter_sign_added='++'
-let g:gitgutter_sign_removed='->'
-let g:gitgutter_sign_modified='~~'
-let g:gitgutter_sign_removed_first_line='=>'
-let g:gitgutter_sign_modified_removed='+>'
-set updatetime=400
-
-""let g:gitgutter_overide_sign_column_highlight=1
-""highlight SignColumn ctermbg=0
-""if exists('&signcolumn')  " Vim 7.4.2201
-""  set signcolumn=yes
-""else
-""  let g:gitgutter_sign_column_always = 1
-""endif
-
-au VimLeave * silent mkview
-au VimEnter * silent loadview
-" 保存折叠
-
-au VimEnter * :GitGutterLineHighlightsEnable
-hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
-" an added line
-hi GitGutterChange ctermfg=lightblue ctermbg=232 cterm=BOLD
-" a changed line
-hi GitGutterDelete ctermfg=1 ctermbg=232 cterm=BOLD
-" at least one removed line
-hi GitGutterChangeDelete ctermfg=yellow ctermbg=232 cterm=BOLD
-" a changed line followed by at least one removed line
-highlight GitGutterAddLine ctermfg=none ctermbg=232
-" default: links to DiffAdd
-highlight GitGutterChangeLine ctermfg=none ctermbg=232
-" default: links to DiffChange
-highlight GitGutterDeleteLine ctermfg=none ctermbg=232
-" default: links to DiffDelete
-highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
-" default: links to GitGutterChangeLineDefault, i.e. DiffChange
 
 vnoremap y "ay
 nnoremap y "ay
@@ -151,3 +101,44 @@ set noundofile
 set noswapfile
 
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
+
+let g:Tex_ViewRule_pdf = 'open -a Preview.app'
+
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\ 'ctermfgs': ['51','219','230','111','99','33','201','118'],
+\}
+
+let g:gitgutter_max_signs=6000
+let g:gitgutter_sign_added='++'
+let g:gitgutter_sign_removed='->'
+let g:gitgutter_sign_modified='~~'
+let g:gitgutter_sign_removed_first_line='=>'
+let g:gitgutter_sign_modified_removed='+>'
+set updatetime=400
+
+""let g:gitgutter_overide_sign_column_highlight=1
+""highlight SignColumn ctermbg=0
+""if exists('&signcolumn')  " Vim 7.4.2201
+""  set signcolumn=yes
+""else
+""  let g:gitgutter_sign_column_always = 1
+""endif
+
+au VimEnter * :GitGutterLineHighlightsEnable
+hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
+" an added line
+hi GitGutterChange ctermfg=lightblue ctermbg=232 cterm=BOLD
+" a changed line
+hi GitGutterDelete ctermfg=1 ctermbg=232 cterm=BOLD
+" at least one removed line
+hi GitGutterChangeDelete ctermfg=yellow ctermbg=232 cterm=BOLD
+" a changed line followed by at least one removed line
+highlight GitGutterAddLine ctermfg=none ctermbg=232
+" default: links to DiffAdd
+highlight GitGutterChangeLine ctermfg=none ctermbg=232
+" default: links to DiffChange
+highlight GitGutterDeleteLine ctermfg=none ctermbg=232
+" default: links to DiffDelete
+highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
+" default: links to GitGutterChangeLineDefault, i.e. DiffChange

@@ -108,6 +108,10 @@ let g:rainbow_conf = {
 \ 'ctermfgs': ['51','219','230','111','99','33','201','118'],
 \}
 
+au VimLeave * silent mkview
+au VimEnter * silent loadview
+" 保存折叠
+
 let g:gitgutter_max_signs=6000
 let g:gitgutter_sign_added='++'
 let g:gitgutter_sign_removed='->'
@@ -123,10 +127,6 @@ set updatetime=400
 ""else
 ""  let g:gitgutter_sign_column_always = 1
 ""endif
-
-au VimLeave * silent mkview
-au VimEnter * silent loadview
-" 保存折叠
 
 au VimEnter * :GitGutterLineHighlightsEnable
 hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
@@ -182,3 +182,5 @@ set pastetoggle=<F10>
  " type in \ref{fig: and press you will automatically cycle through
  " all the figure labels. Very useful!
  set iskeyword+=:
+
+let g:Tex_ViewRule_pdf = 'open -a Preview.app'
