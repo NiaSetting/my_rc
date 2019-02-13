@@ -53,44 +53,7 @@ source $VIMRUNTIME/menu.vim
 language messages zh_CN.utf-8
 
 set nu
-colorscheme my
-""colorscheme strawberry-light
-
-""if version >= 700 && &term != 'cygwin' && !has('gui_running')
-""  " In the color terminal, try to use CSApprox.vim plugin or
-""  " guicolorscheme.vim plugin if possible in order to have consistent
-""  " colors on different terminals.
-""  "
-""  " Uncomment one of the following lines to force 256 or 88 colors if
-""  " your terminal supports it. Or comment both of them if your terminal
-""  " supports neither 256 nor 88 colors. Unfortunately, querying the
-""  " number of supported colors does not work on all terminals.
-""  set t_Co=256
-""  "set t_Co=88
-""  if &t_Co == 256 || &t_Co == 88
-""    " Check whether to use CSApprox.vim plugin or guicolorscheme.vim plugin.
-""    if has('gui') &&
-""      \ (filereadable(expand("$HOME/.vim/plugin/CSApprox.vim")) ||
-""      \  filereadable(expand("$HOME/vimfiles/plugin/CSApprox.vim")))
-""      let s:use_CSApprox = 1
-""    elseif filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim")) ||
-""      \    filereadable(expand("$HOME/vimfiles/plugin/guicolorscheme.vim"))
-""      let s:use_guicolorscheme = 1
-""    endif
-""  endif
-""endif
-""if exists('s:use_CSApprox')
-""  " Can use the CSApprox.vim plugin.
-""  let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
-""  colorscheme tokyo-metro
-""elseif exists('s:use_guicolorscheme')
-""  " Can use the guicolorscheme plugin. It needs to be loaded before
-""  " running GuiColorScheme (hence the :runtime! command).
-""  runtime! plugin/guicolorscheme.vim
-""  GuiColorScheme tokyo-metro
-""else
-""  colorscheme tokyo-metro
-""endif
+colorscheme monokai
 
 set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
 set laststatus=2
@@ -182,3 +145,9 @@ set pastetoggle=<F10>
  " type in \ref{fig: and press you will automatically cycle through
  " all the figure labels. Very useful!
  set iskeyword+=:
+
+set nobackup " 覆盖文件时不备份
+set noundofile
+set noswapfile
+
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
