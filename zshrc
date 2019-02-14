@@ -102,4 +102,4 @@ source $(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindi
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # texlive
-PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH; export PATH
+PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
