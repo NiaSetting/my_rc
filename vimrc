@@ -40,8 +40,8 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格�
 
 syntax enable
 syntax on
-inoremap ' ''<ESC>i
-inoremap " ""<ESC>i
+" inoremap ' ''<ESC>i
+" inoremap " ""<ESC>i
 set tags=/home/ics/tags
 
 
@@ -92,7 +92,7 @@ colorscheme my
 ""  colorscheme tokyo-metro
 ""endif
 
-set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
+set rtp+=/home/lynx/.local/lib/python2.7/site-packages/powerline/bindings/vim
 set laststatus=2
 
 imap <TAB> <C-X><C-N>
