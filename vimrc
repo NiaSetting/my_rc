@@ -222,18 +222,6 @@ Plugin 'Chiel92/vim-autoformat'
 call vundle#end()            " 必须
 filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
 " 忽视插件改变缩进,可以使用以下替代:
-"filetype plugin on
-"
-" 常用的命令
-" :PluginList       - 列出所有已配置的插件
-" :PluginInstall     - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate
-" :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
-" :PluginClean      - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
-"
-" 查阅 :h vundle 获取更多细节和wiki以及FAQ
-" 将你自己对非插件片段放在这行之后
-
-" 2019/2/20 vim-autoformat
 
 noremap <F3> :Autoformat<CR>
 let g:autoformat_verbosemode=1
