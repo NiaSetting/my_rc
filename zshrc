@@ -103,3 +103,10 @@ source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # texlive
 PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
+
+# oslab
+export STUID=171240525
+export STUNAME=凌晨宇
+
+# qiniu qshell
+export PATH=$PATH:~/bucket

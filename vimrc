@@ -6,6 +6,7 @@ set showcmd
 set showmatch
 set ignorecase
 set smartcase
+set smartindent
 set incsearch
 set autowrite
 set hidden
@@ -225,3 +226,7 @@ filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和
 
 noremap <F3> :Autoformat<CR>
 let g:autoformat_verbosemode=1
+
+" ctags
+set tags=tags;
+set autochdir
