@@ -93,12 +93,11 @@ language messages zh_CN.utf-8
 set rtp+=/home/lynx/.local/lib/python2.7/site-packages/powerline/bindings/vim
 set laststatus=2
 
-imap <TAB> <C-X><C-N>
-" 自动补全
-
 " vim-plug =================================================
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
+Plug 'jisaacks/GitGutter'
+Plug 'luochen1990/rainbow'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 " ============================================================
@@ -206,7 +205,6 @@ Plugin 'tpope/vim-fugitive'
 " 安装L9，如果已经安装过这个插件，可利用以下格式避免命名冲突
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 " 你的所有插件需要在下面这行之前
-Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " 必须
 filetype indent plugin on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
 " 忽视插件改变缩进,可以使用以下替代:
@@ -216,4 +214,7 @@ filetype indent plugin on    " 必须 加载vim自带和插件相应的语法和
 set tags=tags;
 set autochdir
 " ==================================
+
+" imap <TAB> <C-X><C-N>
+" 自动补全
 
