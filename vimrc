@@ -1,11 +1,4 @@
-au VimLeave * silent mkview
-au VimEnter * silent loadview
-" 保存折叠
-
 set background=dark
-" if has("autocmd") "用不上
-"   filetype plugin indent on
-" endif
 set showcmd
 set showmatch
 set ignorecase
@@ -41,7 +34,7 @@ set foldenable " 开始折叠
 set foldmethod=syntax " 设置语法折叠
 set foldcolumn=0 " 设置折叠区域的宽度
 setlocal foldlevel=1 " 设置折叠层数为 1
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
+" nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 
 syntax enable
 syntax on
@@ -214,14 +207,31 @@ set tags=tags;
 set autochdir
 " ==================================
 
-imap <TAB> <C-X><C-N>
-nmap <C-A> ggVG
-noremap <C-C> "+Y
-nnoremap <C-O> <C-O><C-O><C-O>
+inoremap <TAB> <C-X><C-N>
 " 自动补全
+inoremap jk <esc>
+nnoremap <C-A> ggVG
+noremap <C-C> "+Y
+let mapleader=" "
 
 function! Myfunc()
 	echo "shit"
 endfunction
 
-set completefunc=Myfunc()
+iabbrev mian main
+iabbrev itn int
+iabbrev fro for
+iabbrev pf printf
+iabbrev wl while
+iabbrev db double
+iabbrev sf scanf
+
+au VimLeave * silent mkview
+au VimEnter * silent loadview
+" 保存折叠
+au FileType c,cpp,java nnoremap <leader><down> I// <esc>
+au FileType c,cpp,java vnoremap <leader><down> <C-V><home>I// <esc><esc>
+au FileType vim nnoremap <leader><down> I" <esc>
+au FileType vim vnoremap <leader><down> <C-V><home>I" <esc><esc>
+au FileType python nnoremap <leader><down> I# <esc>
+au FileType python vnoremap <leader><down> <C-V><home>I# <esc><esc>
