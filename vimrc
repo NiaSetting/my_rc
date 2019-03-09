@@ -1,7 +1,7 @@
 set background=dark
-""if has("autocmd") "用不上
-""  filetype plugin indent on
-""endif
+" if has("autocmd") "用不上
+"   filetype plugin indent on
+" endif
 set showcmd
 set showmatch
 set ignorecase
@@ -17,9 +17,9 @@ set bufhidden=hide " 当buffer被丢弃的时候隐藏它
 set number " 显示行号
 set cursorline " 突出显示当前行
 set ruler " 打开状态栏标尺
-set shiftwidth=4 " 设定 << 和 >> 命令移动时的宽度为 4
+set shiftwidth=2 " 设定 << 和 >> 命令移动时的宽度为 4
 set softtabstop=2 " 使得按退格键时可以一次删掉 4 个空格
-set tabstop=2 " 设定 tab 长度为 4
+set tabstop=2 " 设定 tab 长度为 2
 set nobackup " 覆盖文件时不备份
 set autochdir " 自动切换当前目录为当前文件所在的目录
 set backupcopy=yes " 设置备份时的行为为覆盖
@@ -41,57 +41,50 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格�
 
 syntax enable
 syntax on
-" inoremap ' ''<ESC>i
-" inoremap " ""<ESC>i
-set tags=/home/ics/tags
-
+colorscheme my
 
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin
 set enc=utf8
 set fencs=utf8,gbk,gb2312,gb18030
-source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/delmenu.vim " gvim菜单乱码
 source $VIMRUNTIME/menu.vim
 language messages zh_CN.utf-8
 
-set nu
-colorscheme my
-""colorscheme strawberry-light
-
-""if version >= 700 && &term != 'cygwin' && !has('gui_running')
-""  " In the color terminal, try to use CSApprox.vim plugin or
-""  " guicolorscheme.vim plugin if possible in order to have consistent
-""  " colors on different terminals.
-""  "
-""  " Uncomment one of the following lines to force 256 or 88 colors if
-""  " your terminal supports it. Or comment both of them if your terminal
-""  " supports neither 256 nor 88 colors. Unfortunately, querying the
-""  " number of supported colors does not work on all terminals.
-""  set t_Co=256
-""  "set t_Co=88
-""  if &t_Co == 256 || &t_Co == 88
-""    " Check whether to use CSApprox.vim plugin or guicolorscheme.vim plugin.
-""    if has('gui') &&
-""      \ (filereadable(expand("$HOME/.vim/plugin/CSApprox.vim")) ||
-""      \  filereadable(expand("$HOME/vimfiles/plugin/CSApprox.vim")))
-""      let s:use_CSApprox = 1
-""    elseif filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim")) ||
-""      \    filereadable(expand("$HOME/vimfiles/plugin/guicolorscheme.vim"))
-""      let s:use_guicolorscheme = 1
-""    endif
-""  endif
-""endif
-""if exists('s:use_CSApprox')
-""  " Can use the CSApprox.vim plugin.
-""  let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
-""  colorscheme tokyo-metro
-""elseif exists('s:use_guicolorscheme')
-""  " Can use the guicolorscheme plugin. It needs to be loaded before
-""  " running GuiColorScheme (hence the :runtime! command).
-""  runtime! plugin/guicolorscheme.vim
-""  GuiColorScheme tokyo-metro
-""else
-""  colorscheme tokyo-metro
-""endif
+" if version >= 700 && &term != 'cygwin' && !has('gui_running')
+"   " In the color terminal, try to use CSApprox.vim plugin or
+"   " guicolorscheme.vim plugin if possible in order to have consistent
+"   " colors on different terminals.
+"   "
+"   " Uncomment one of the following lines to force 256 or 88 colors if
+"   " your terminal supports it. Or comment both of them if your terminal
+"   " supports neither 256 nor 88 colors. Unfortunately, querying the
+"   " number of supported colors does not work on all terminals.
+"   set t_Co=256
+"   "set t_Co=88
+"   if &t_Co == 256 || &t_Co == 88
+"     " Check whether to use CSApprox.vim plugin or guicolorscheme.vim plugin.
+"     if has('gui') &&
+"       \ (filereadable(expand("$HOME/.vim/plugin/CSApprox.vim")) ||
+"       \  filereadable(expand("$HOME/vimfiles/plugin/CSApprox.vim")))
+"       let s:use_CSApprox = 1
+"     elseif filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim")) ||
+"       \    filereadable(expand("$HOME/vimfiles/plugin/guicolorscheme.vim"))
+"       let s:use_guicolorscheme = 1
+"     endif
+"   endif
+" endif
+" if exists('s:use_CSApprox')
+"   " Can use the CSApprox.vim plugin.
+"   let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+"   colorscheme tokyo-metro
+" elseif exists('s:use_guicolorscheme')
+"   " Can use the guicolorscheme plugin. It needs to be loaded before
+"   " running GuiColorScheme (hence the :runtime! command).
+"   runtime! plugin/guicolorscheme.vim
+"   GuiColorScheme tokyo-metro
+" else
+"   colorscheme tokyo-metro
+" endif
 
 set rtp+=/home/lynx/.local/lib/python2.7/site-packages/powerline/bindings/vim
 set laststatus=2
@@ -99,10 +92,12 @@ set laststatus=2
 imap <TAB> <C-X><C-N>
 " 自动补全
 
+" vim-plug =================================================
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+" ============================================================
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {
@@ -113,6 +108,7 @@ au VimLeave * silent mkview
 au VimEnter * silent loadview
 " 保存折叠
 
+" gitgutter ===================================================
 let g:gitgutter_max_signs=6000
 let g:gitgutter_sign_added='++'
 let g:gitgutter_sign_removed='->'
@@ -146,6 +142,7 @@ highlight GitGutterDeleteLine ctermfg=none ctermbg=232
 " default: links to DiffDelete
 highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
 " default: links to GitGutterChangeLineDefault, i.e. DiffChange
+" ======================================================
 
 vnoremap y "ay
 nnoremap y "ay
@@ -155,42 +152,34 @@ vnoremap d "ad
 nnoremap d "ad
 set pastetoggle=<F10>
 
+" vim-latex ============================================
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
- filetype plugin on
- 
- " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
- " can be called correctly.
- " set shellslash
- 
- " IMPORTANT: grep will sometimes skip displaying the file name if you
- " search in a singe file. This will confuse Latex-Suite. Set your grep
- " program to always generate a file-name.
- set grepprg=grep\ -nH\ $*
- 
- " OPTIONAL: This enables automatic indentation as you type.
- filetype indent on
- 
- " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
- " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
- " The following changes the default filetype back to 'tex':
- let g:tex_flavor='latex'
- 
- " this is mostly a matter of taste. but LaTeX looks good with just a bit
- " of indentation.
- set sw=2
- 
- " TIP: if you write your \label's as \label{fig:something}, then if you
- " type in \ref{fig: and press you will automatically cycle through
- " all the figure labels. Very useful!
- set iskeyword+=:
-
+filetype plugin on
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+" set shellslash
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+" this is mostly a matter of taste. but LaTeX looks good with just a bit
+" of indentation.
+set sw=2
+" TIP: if you write your \label's as \label{fig:something}, then if you
+" type in \ref{fig: and press you will automatically cycle through
+" all the figure labels. Very useful!
+set iskeyword+=:
 let g:Tex_ViewRule_pdf = 'evince'
 
-" 2019/2/20 vundle
-
+" 2019/2/20 vundle ===================================
 set nocompatible              " 去除VI一致性,必须要添加
 filetype off                  " 必须要添加
-
 " 设置包括vundle和初始化相关的runtime path
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -199,7 +188,6 @@ call vundle#begin()
 
 " 让vundle管理插件版本,必须
 Plugin 'VundleVim/Vundle.vim'
-
 " 以下范例用来支持不同格式的插件安装.
 " 请将安装插件的命令放在vundle#begin和vundle#end之间.
 " Github上的插件
@@ -217,16 +205,14 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " 安装L9，如果已经安装过这个插件，可利用以下格式避免命名冲突
 " Plugin 'ascenator/L9', {'name': 'newL9'}
-
-Plugin 'Chiel92/vim-autoformat'
 " 你的所有插件需要在下面这行之前
 call vundle#end()            " 必须
 filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
 " 忽视插件改变缩进,可以使用以下替代:
+" filetype plugin on
 
-noremap <F3> :Autoformat<CR>
-let g:autoformat_verbosemode=1
 
-" ctags
+" ctags =============================
 set tags=tags;
 set autochdir
+" ==================================
