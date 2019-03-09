@@ -209,12 +209,19 @@ call vundle#end()            " 必须
 filetype indent plugin on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
 " 忽视插件改变缩进,可以使用以下替代:
 
-
 " ctags =============================
 set tags=tags;
 set autochdir
 " ==================================
 
-" imap <TAB> <C-X><C-N>
+imap <TAB> <C-X><C-N>
+nmap <C-A> ggVG
+noremap <C-C> "+Y
+nnoremap <C-O> <C-O><C-O><C-O>
 " 自动补全
 
+function! Myfunc()
+	echo "shit"
+endfunction
+
+set completefunc=Myfunc()
