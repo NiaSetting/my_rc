@@ -1,10 +1,5 @@
 au VimLeave * silent mkview
 au VimEnter * silent loadview
-if (&filetype)
-	echo "fuck"
-else
-	au VimEnter * echo "shit"
-endif
 " 保存折叠
 
 set background=dark
@@ -211,6 +206,7 @@ Plugin 'tpope/vim-fugitive'
 " 安装L9，如果已经安装过这个插件，可利用以下格式避免命名冲突
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 " 你的所有插件需要在下面这行之前
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " 必须
 filetype indent plugin on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
 " 忽视插件改变缩进,可以使用以下替代:
