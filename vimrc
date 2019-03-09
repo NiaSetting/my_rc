@@ -1,7 +1,4 @@
 set background=dark
-""if has("autocmd") "用不上
-""  filetype plugin indent on
-""endif
 set showcmd
 set showmatch
 set ignorecase
@@ -36,14 +33,11 @@ set foldenable " 开始折叠
 set foldmethod=syntax " 设置语法折叠
 set foldcolumn=0 " 设置折叠区域的宽度
 setlocal foldlevel=1 " 设置折叠层数为 1
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
+" nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 
 syntax enable
 syntax on
-inoremap ' ''<ESC>i
-inoremap " ""<ESC>i
-set tags=/home/ics/tags
-
+colorscheme my
 
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin
 set enc=utf8
@@ -52,66 +46,22 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 language messages zh_CN.utf-8
 
-set nu
-colorscheme my
-""colorscheme strawberry-light
-
-""if version >= 700 && &term != 'cygwin' && !has('gui_running')
-""  " In the color terminal, try to use CSApprox.vim plugin or
-""  " guicolorscheme.vim plugin if possible in order to have consistent
-""  " colors on different terminals.
-""  "
-""  " Uncomment one of the following lines to force 256 or 88 colors if
-""  " your terminal supports it. Or comment both of them if your terminal
-""  " supports neither 256 nor 88 colors. Unfortunately, querying the
-""  " number of supported colors does not work on all terminals.
-""  set t_Co=256
-""  "set t_Co=88
-""  if &t_Co == 256 || &t_Co == 88
-""    " Check whether to use CSApprox.vim plugin or guicolorscheme.vim plugin.
-""    if has('gui') &&
-""      \ (filereadable(expand("$HOME/.vim/plugin/CSApprox.vim")) ||
-""      \  filereadable(expand("$HOME/vimfiles/plugin/CSApprox.vim")))
-""      let s:use_CSApprox = 1
-""    elseif filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim")) ||
-""      \    filereadable(expand("$HOME/vimfiles/plugin/guicolorscheme.vim"))
-""      let s:use_guicolorscheme = 1
-""    endif
-""  endif
-""endif
-""if exists('s:use_CSApprox')
-""  " Can use the CSApprox.vim plugin.
-""  let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
-""  colorscheme tokyo-metro
-""elseif exists('s:use_guicolorscheme')
-""  " Can use the guicolorscheme plugin. It needs to be loaded before
-""  " running GuiColorScheme (hence the :runtime! command).
-""  runtime! plugin/guicolorscheme.vim
-""  GuiColorScheme tokyo-metro
-""else
-""  colorscheme tokyo-metro
-""endif
-
 set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
 set laststatus=2
 
-imap <TAB> <C-X><C-N>
-" 自动补全
-
+" vim-plug=====================
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+" =============================
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \ 'ctermfgs': ['51','219','230','111','99','33','201','118'],
 \}
 
-au VimLeave * silent mkview
-au VimEnter * silent loadview
-" 保存折叠
-
+" gitgutter=======================
 let g:gitgutter_max_signs=6000
 let g:gitgutter_sign_added='++'
 let g:gitgutter_sign_removed='->'
@@ -145,6 +95,33 @@ highlight GitGutterDeleteLine ctermfg=none ctermbg=232
 " default: links to DiffDelete
 highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
 " default: links to GitGutterChangeLineDefault, i.e. DiffChange
+" ==================================
+
+" vim-latex===========================
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+" set shellslash
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+" this is mostly a matter of taste. but LaTeX looks good with just a bit
+" of indentation.
+set sw=2
+" TIP: if you write your \label's as \label{fig:something}, then if you
+" type in \ref{fig: and press you will automatically cycle through
+" all the figure labels. Very useful!
+set iskeyword+=:
+let g:Tex_ViewRule_pdf = 'open -a Preview.app'
+" ===================== 
 
 vnoremap y "ay
 nnoremap y "ay
@@ -154,33 +131,28 @@ vnoremap d "ad
 nnoremap d "ad
 set pastetoggle=<F10>
 
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
- filetype plugin on
- 
- " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
- " can be called correctly.
- " set shellslash
- 
- " IMPORTANT: grep will sometimes skip displaying the file name if you
- " search in a singe file. This will confuse Latex-Suite. Set your grep
- " program to always generate a file-name.
- set grepprg=grep\ -nH\ $*
- 
- " OPTIONAL: This enables automatic indentation as you type.
- filetype indent on
- 
- " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
- " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
- " The following changes the default filetype back to 'tex':
- let g:tex_flavor='latex'
- 
- " this is mostly a matter of taste. but LaTeX looks good with just a bit
- " of indentation.
- set sw=2
- 
- " TIP: if you write your \label's as \label{fig:something}, then if you
- " type in \ref{fig: and press you will automatically cycle through
- " all the figure labels. Very useful!
- set iskeyword+=:
+imap <TAB> <C-X><C-N>
+" 自动补全
+inoremap jk <esc>
+nnoremap <C-A> ggVG
+noremap <C-C> "+Y
+let mapleader=" "
 
-let g:Tex_ViewRule_pdf = 'open -a Preview.app'
+iabbrev mian main
+iabbrev itn int
+iabbrev fro for
+iabbrev pf printf
+iabbrev wl while
+iabbrev db double
+iabbrev sf scanf
+
+au VimLeave * silent mkview
+au VimEnter * silent loadview
+" 保存折叠
+au FileType c,cpp,java nnoremap <leader><down> I// <esc>
+au FileType c,cpp,java vnoremap <leader><down> <C-V><home>I// <esc><esc>
+au FileType vim nnoremap <leader><down> I" <esc>
+au FileType vim vnoremap <leader><down> <C-V><home>I" <esc><esc>
+au FileType python nnoremap <leader><down> I# <esc>
+au FileType python vnoremap <leader><down> <C-V><home>I# <esc><esc>
+
