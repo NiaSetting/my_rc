@@ -1,3 +1,12 @@
+au VimLeave * silent mkview
+au VimEnter * silent loadview
+if (&filetype)
+	echo "fuck"
+else
+	au VimEnter * echo "shit"
+endif
+" 保存折叠
+
 set background=dark
 " if has("autocmd") "用不上
 "   filetype plugin indent on
@@ -104,10 +113,6 @@ let g:rainbow_conf = {
 \ 'ctermfgs': ['51','219','230','111','99','33','201','118'],
 \}
 
-au VimLeave * silent mkview
-au VimEnter * silent loadview
-" 保存折叠
-
 " gitgutter ===================================================
 let g:gitgutter_max_signs=6000
 let g:gitgutter_sign_added='++'
@@ -207,12 +212,12 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 " 你的所有插件需要在下面这行之前
 call vundle#end()            " 必须
-filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
+filetype indent plugin on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
 " 忽视插件改变缩进,可以使用以下替代:
-" filetype plugin on
 
 
 " ctags =============================
 set tags=tags;
 set autochdir
 " ==================================
+
