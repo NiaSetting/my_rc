@@ -110,3 +110,5 @@ export STUNAME=凌晨宇
 
 # qiniu qshell
 export PATH=$PATH:~/bucket
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

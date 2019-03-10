@@ -207,16 +207,16 @@ set tags=tags;
 set autochdir
 " ==================================
 
-inoremap <TAB> <C-X><C-N>
 " 自动补全
 inoremap jk <esc>
-nnoremap <C-A> ggVG
-noremap <C-C> "+Y
-let mapleader=" "
-
-function! Myfunc()
-	echo "shit"
-endfunction
+let mapleader=";"
+nnoremap <c-a> ggVG
+noremap <c-c> "+Y
+vnoremap <c-c> "+Y
+inoremap <c-v> <esc>"+Pi
+inoremap <leader>w <esc>O
+inoremap <leader>s <esc>o
+inoremap <tab> <c-x><c-n>
 
 iabbrev mian main
 iabbrev itn int
@@ -229,9 +229,9 @@ iabbrev sf scanf
 au VimLeave * silent mkview
 au VimEnter * silent loadview
 " 保存折叠
-au FileType c,cpp,java nnoremap <leader><down> I// <esc>
-au FileType c,cpp,java vnoremap <leader><down> <C-V><home>I// <esc><esc>
-au FileType vim nnoremap <leader><down> I" <esc>
-au FileType vim vnoremap <leader><down> <C-V><home>I" <esc><esc>
-au FileType python nnoremap <leader><down> I# <esc>
-au FileType python vnoremap <leader><down> <C-V><home>I# <esc><esc>
+au FileType c,cpp,java nnoremap <leader>s I// <esc>
+au FileType c,cpp,java vnoremap <leader>s <home>I// <esc><esc>
+au FileType vim nnoremap <leader>s I" <esc>
+au FileType vim vnoremap <leader>s <home>I" <esc><esc>
+au FileType python nnoremap <leader>s I# <esc>
+au FileType python vnoremap <leader>s <home>I# <esc><esc>
