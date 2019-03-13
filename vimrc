@@ -220,6 +220,7 @@ inoremap <leader>d <end>
 inoremap <leader>s <esc>o
 inoremap <leader>a <home> 
 inoremap <tab> <esc>:call MyFind2()<cr>a
+inoremap jk <esc>:call MyJump()<cr>a
 
 au VimLeave * silent mkview
 au VimEnter * silent loadview
