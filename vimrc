@@ -90,7 +90,8 @@ set laststatus=2
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
-Plug 'niabie/vim-sb-complete'
+Plug 'niabie/vim-sb-complete2'
+Plug 'niabie/vim-sb-jump'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 " ============================================================
@@ -215,23 +216,16 @@ noremap <c-c> "+Y
 vnoremap <c-c> "+Y
 inoremap <c-v> <esc>"+Pi
 inoremap <leader>w <esc>O
+inoremap <leader>d <end>
 inoremap <leader>s <esc>o
-inoremap <tab> <c-r>=MyFind()<cr>
-inoremap <leader><leader> <c-x><c-n> 
-
-iabbrev mian main
-iabbrev itn int
-iabbrev fro for
-iabbrev pf printf
-iabbrev wl while
-iabbrev db double
-iabbrev sf scanf
+inoremap <leader>a <home> 
+inoremap <tab> <esc>:call MyFind2()<cr>a
 
 au VimLeave * silent mkview
 au VimEnter * silent loadview
 " 保存折叠
-au FileType c,cpp,java nnoremap <leader>s I// <esc>
-au FileType c,cpp,java vnoremap <leader>s <home>I// <esc><esc>
+au FileType c,cpp,java,javascript nnoremap <leader>s I// <esc>
+au FileType c,cpp,java,javascript vnoremap <leader>s <home>I// <esc><esc>
 au FileType vim nnoremap <leader>s I" <esc>
 au FileType vim vnoremap <leader>s <home>I" <esc><esc>
 au FileType python nnoremap <leader>s I# <esc>
