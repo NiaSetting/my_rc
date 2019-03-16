@@ -137,13 +137,6 @@ highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
 " default: links to GitGutterChangeLineDefault, i.e. DiffChange
 " ======================================================
 
-vnoremap y "ay
-nnoremap y "ay
-vnoremap p "ap
-nnoremap p "ap
-vnoremap d "ad
-nnoremap d "ad
-set pastetoggle=<F10>
 
 " vim-latex ============================================
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
@@ -209,25 +202,36 @@ set autochdir
 " ==================================
 
 " 自动补全
-inoremap jk <esc>
-let mapleader=";"
+let mapleader="j"
 nnoremap <c-a> ggVG
 noremap <c-c> "+Y
 vnoremap <c-c> "+Y
 inoremap <c-v> <esc>"+Pi
-inoremap <leader>w <esc>O
-inoremap <leader>d <end>
-inoremap <leader>s <esc>o
-inoremap <leader>a <home> 
-inoremap <tab> <esc>:call MyFind2()<cr>a
-inoremap jk <esc>:call MyJump()<cr>a
+inoremap <leader>e <esc>O
+inoremap <leader>d <esc>o
+inoremap {<cr> {}<left><cr><esc>O
+inoremap jk <c-o>
+vnoremap y "ay
+nnoremap y "ay
+vnoremap p "ap
+nnoremap p "ap
+vnoremap d "ad
+nnoremap d "ad
+set pastetoggle=<F10>
+let g:sbcom2_active = 1
 
-au VimLeave * silent mkview
-au VimEnter * silent loadview
+au FileType * call MyView()
+fun! MyView()
+	if (&filetype != "")
+		au VimLeave * silent mkview
+		au VimEnter * silent loadview
+	endif
+endfun
+
 " 保存折叠
-au FileType c,cpp,java,javascript nnoremap <leader>s I// <esc>
-au FileType c,cpp,java,javascript vnoremap <leader>s <home>I// <esc><esc>
-au FileType vim nnoremap <leader>s I" <esc>
-au FileType vim vnoremap <leader>s <home>I" <esc><esc>
-au FileType python nnoremap <leader>s I# <esc>
-au FileType python vnoremap <leader>s <home>I# <esc><esc>
+au FileType c,cpp,java,javascript nnoremap <leader>d I// <esc>
+au FileType c,cpp,java,javascript vnoremap <leader>d <home>I// <esc><esc>
+au FileType vim nnoremap <leader>d I" <esc>
+au FileType vim vnoremap <leader>d <home>I" <esc><esc>
+au FileType python nnoremap <leader>d I# <esc>
+au FileType python vnoremap <leader>d <home>I# <esc><esc>
