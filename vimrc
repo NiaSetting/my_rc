@@ -220,11 +220,14 @@ nnoremap d "ad
 set pastetoggle=<F10>
 let g:sbcom2_active = 1
 
-au FileType * call MyView()
+au BufEnter * call MyView()
 fun! MyView()
 	if (&filetype != "")
 		au VimLeave * silent mkview
 		au VimEnter * silent loadview
+	endif
+	if (expand("%:e") == "swig")
+		set filetype=html
 	endif
 endfun
 
