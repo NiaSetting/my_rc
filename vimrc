@@ -201,6 +201,7 @@ set autochdir
 "" ==================================
 
 " 自动补全
+let mapleader=";;;;;;;;;;;;;;;;;;;;"
 nnoremap <c-a> ggVG
 noremap <c-c> "+Y
 vnoremap <c-c> "+Y
@@ -216,15 +217,15 @@ nnoremap d "ad
 set pastetoggle=<F10>
 let g:sbcom2_active = 1
  
-au VimEnter * call MyView()
+au BufEnter * call MyView()
 fun! MyView()
   if (expand("%") != "")
 		silent loadview
   	au VimLeave * silent mkview
   endif
-	if (expand("%:e") == "swig")
-		set filetype=html
-	elseif (expand("%:e") == "styl")
-		set filetype=css
-	endif
+ 	if (expand("%:e") == "swig")
+ 		set filetype=html
+ 	elseif (expand("%:e") == "styl")
+ 		set filetype=css
+ 	endif
 endfun
