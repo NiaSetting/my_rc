@@ -16,7 +16,7 @@ set cursorline " 突出显示当前行
 set ruler " 打开状态栏标尺
 set shiftwidth=2 " 设定 << 和 >> 命令移动时的宽度为 4
 set softtabstop=2 " 使得按退格键时可以一次删掉 4 个空格
-set tabstop=2 " 设定 tab 长度为 2
+" set tabstop=2 " 设定 tab 长度为 2
 set nobackup " 覆盖文件时不备份
 set autochdir " 自动切换当前目录为当前文件所在的目录
 set backupcopy=yes " 设置备份时的行为为覆盖
@@ -35,6 +35,8 @@ set foldmethod=syntax " 设置语法折叠
 set foldcolumn=0 " 设置折叠区域的宽度
 setlocal foldlevel=1 " 设置折叠层数为 1
 " nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
+" ==================================================
+set expandtab
 
 syntax enable
 syntax on
@@ -88,9 +90,9 @@ set laststatus=2
 
 " vim-plug =================================================
 call plug#begin('~/.vim/plugged')
-Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
 Plug 'niabie/vim-sb-complete2'
+Plug 'airblade/vim-gitgutter'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 " ============================================================
@@ -100,41 +102,41 @@ let g:rainbow_conf = {
 \ 'ctermfgs': ['51','219','230','111','99','33','201','118'],
 \}
 
-" gitgutter ===================================================
-let g:gitgutter_max_signs=6000
-let g:gitgutter_sign_added='++'
-let g:gitgutter_sign_removed='->'
-let g:gitgutter_sign_modified='~~'
-let g:gitgutter_sign_removed_first_line='=>'
-let g:gitgutter_sign_modified_removed='+>'
-set updatetime=400
-
-""let g:gitgutter_overide_sign_column_highlight=1
-""highlight SignColumn ctermbg=0
-""if exists('&signcolumn')  " Vim 7.4.2201
-""  set signcolumn=yes
-""else
-""  let g:gitgutter_sign_column_always = 1
-""endif
-
-au VimEnter * :GitGutterLineHighlightsEnable
-hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
-" an added line
-hi GitGutterChange ctermfg=lightblue ctermbg=232 cterm=BOLD
-" a changed line
-hi GitGutterDelete ctermfg=1 ctermbg=232 cterm=BOLD
-" at least one removed line
-hi GitGutterChangeDelete ctermfg=yellow ctermbg=232 cterm=BOLD
-" a changed line followed by at least one removed line
-highlight GitGutterAddLine ctermfg=none ctermbg=232
-" default: links to DiffAdd
-highlight GitGutterChangeLine ctermfg=none ctermbg=232
-" default: links to DiffChange
-highlight GitGutterDeleteLine ctermfg=none ctermbg=232
-" default: links to DiffDelete
-highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
-" default: links to GitGutterChangeLineDefault, i.e. DiffChange
-" ======================================================
+ " gitgutter ===================================================
+ let g:gitgutter_max_signs=100
+ let g:gitgutter_sign_added='++'
+ let g:gitgutter_sign_removed='->'
+ let g:gitgutter_sign_modified='~~'
+ let g:gitgutter_sign_removed_first_line='=>'
+ let g:gitgutter_sign_modified_removed='+>'
+ set updatetime=400
+ 
+ ""let g:gitgutter_overide_sign_column_highlight=1
+ ""highlight SignColumn ctermbg=0
+ ""if exists('&signcolumn')  " Vim 7.4.2201
+ ""  set signcolumn=yes
+ ""else
+ ""  let g:gitgutter_sign_column_always = 1
+ ""endif
+ 
+ au VimEnter * :GitGutterLineHighlightsEnable
+ hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
+ " an added line
+ hi GitGutterChange ctermfg=lightblue ctermbg=232 cterm=BOLD
+ " a changed line
+ hi GitGutterDelete ctermfg=1 ctermbg=232 cterm=BOLD
+ " at least one removed line
+ hi GitGutterChangeDelete ctermfg=yellow ctermbg=232 cterm=BOLD
+ " a changed line followed by at least one removed line
+ highlight GitGutterAddLine ctermfg=none ctermbg=232
+ " default: links to DiffAdd
+ highlight GitGutterChangeLine ctermfg=none ctermbg=232
+ " default: links to DiffChange
+ highlight GitGutterDeleteLine ctermfg=none ctermbg=232
+ " default: links to DiffDelete
+ highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
+ " default: links to GitGutterChangeLineDefault, i.e. DiffChange
+ " ======================================================
 
 
 " vim-latex ============================================
@@ -201,7 +203,6 @@ set autochdir
 "" ==================================
 
 " 自动补全
-let mapleader=";;;;;;;;;;;;;;;;;;;;"
 nnoremap <c-a> ggVG
 noremap <c-c> "+Y
 vnoremap <c-c> "+Y
@@ -220,12 +221,12 @@ let g:sbcom2_active = 1
 au BufEnter * call MyView()
 fun! MyView()
   if (expand("%") != "")
-		silent loadview
-  	au VimLeave * silent mkview
+    silent loadview
+    au VimLeave * silent mkview
   endif
- 	if (expand("%:e") == "swig")
- 		set filetype=html
- 	elseif (expand("%:e") == "styl")
- 		set filetype=css
- 	endif
+   if (expand("%:e") == "swig")
+     set filetype=html
+   elseif (expand("%:e") == "styl")
+     set filetype=css
+   endif
 endfun

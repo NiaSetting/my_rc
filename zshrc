@@ -112,3 +112,6 @@ export STUNAME=凌晨宇
 export PATH=$PATH:~/bucket
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# oj
+PATH=$PATH:/home/lynx/问题求解/union_find/linux-x64/
