@@ -37,6 +37,7 @@ setlocal foldlevel=1 " 设置折叠层数为 1
 " nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 " ==================================================
 set expandtab
+set noignorecase
 
 syntax enable
 syntax on
@@ -104,12 +105,17 @@ let g:rainbow_conf = {
 
  " gitgutter ===================================================
  let g:gitgutter_max_signs=100
- let g:gitgutter_sign_added='++'
- let g:gitgutter_sign_removed='->'
- let g:gitgutter_sign_modified='~~'
- let g:gitgutter_sign_removed_first_line='=>'
- let g:gitgutter_sign_modified_removed='+>'
+" let g:gitgutter_sign_added='++'
+" let g:gitgutter_sign_removed='->'
+" let g:gitgutter_sign_modified='~~'
+" let g:gitgutter_sign_removed_first_line='=>'
+" let g:gitgutter_sign_modified_removed='+>'
  set updatetime=400
+ let g:gitgutter_sign_added="|"
+ let g:gitgutter_sign_removed='|'
+ let g:gitgutter_sign_modified='|'
+ let g:gitgutter_sign_removed_first_line='|'
+ let g:gitgutter_sign_modified_removed='|'
  
  ""let g:gitgutter_overide_sign_column_highlight=1
  ""highlight SignColumn ctermbg=0
