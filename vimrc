@@ -103,46 +103,41 @@ let g:rainbow_conf = {
 \ 'ctermfgs': ['51','219','230','111','99','33','201','118'],
 \}
 
- " gitgutter ===================================================
- let g:gitgutter_max_signs=100
-" let g:gitgutter_sign_added='++'
-" let g:gitgutter_sign_removed='->'
-" let g:gitgutter_sign_modified='~~'
-" let g:gitgutter_sign_removed_first_line='=>'
-" let g:gitgutter_sign_modified_removed='+>'
- set updatetime=400
- let g:gitgutter_sign_added="|"
- let g:gitgutter_sign_removed='|'
- let g:gitgutter_sign_modified='|'
- let g:gitgutter_sign_removed_first_line='|'
- let g:gitgutter_sign_modified_removed='|'
- 
- ""let g:gitgutter_overide_sign_column_highlight=1
- ""highlight SignColumn ctermbg=0
- ""if exists('&signcolumn')  " Vim 7.4.2201
- ""  set signcolumn=yes
- ""else
- ""  let g:gitgutter_sign_column_always = 1
- ""endif
- 
- au VimEnter * :GitGutterLineHighlightsEnable
- hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
- " an added line
- hi GitGutterChange ctermfg=lightblue ctermbg=232 cterm=BOLD
- " a changed line
- hi GitGutterDelete ctermfg=1 ctermbg=232 cterm=BOLD
- " at least one removed line
- hi GitGutterChangeDelete ctermfg=yellow ctermbg=232 cterm=BOLD
- " a changed line followed by at least one removed line
- highlight GitGutterAddLine ctermfg=none ctermbg=232
- " default: links to DiffAdd
- highlight GitGutterChangeLine ctermfg=none ctermbg=232
- " default: links to DiffChange
- highlight GitGutterDeleteLine ctermfg=none ctermbg=232
- " default: links to DiffDelete
- highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
- " default: links to GitGutterChangeLineDefault, i.e. DiffChange
- " ======================================================
+" gitgutter ===================================================
+let g:gitgutter_max_signs=100
+ let g:gitgutter_sign_added='++'
+ let g:gitgutter_sign_removed='->'
+ let g:gitgutter_sign_modified='~~'
+ let g:gitgutter_sign_removed_first_line='=>'
+ let g:gitgutter_sign_modified_removed='+>'
+set updatetime=400
+
+""let g:gitgutter_overide_sign_column_highlight=1
+""highlight SignColumn ctermbg=0
+""if exists('&signcolumn')  " Vim 7.4.2201
+""  set signcolumn=yes
+""else
+""  let g:gitgutter_sign_column_always = 1
+""endif
+
+au VimEnter * :GitGutterLineHighlightsEnable
+hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
+" an added line
+hi GitGutterChange ctermfg=lightblue ctermbg=232 cterm=BOLD
+" a changed line
+hi GitGutterDelete ctermfg=1 ctermbg=232 cterm=BOLD
+" at least one removed line
+hi GitGutterChangeDelete ctermfg=yellow ctermbg=232 cterm=BOLD
+" a changed line followed by at least one removed line
+highlight GitGutterAddLine ctermfg=none ctermbg=232
+" default: links to DiffAdd
+highlight GitGutterChangeLine ctermfg=none ctermbg=232
+" default: links to DiffChange
+highlight GitGutterDeleteLine ctermfg=none ctermbg=232
+" default: links to DiffDelete
+highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
+" default: links to GitGutterChangeLineDefault, i.e. DiffChange
+" ======================================================
 
 
 " vim-latex ============================================
