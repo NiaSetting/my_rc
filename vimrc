@@ -92,7 +92,9 @@ set laststatus=2
 " vim-plug =================================================
 call plug#begin('~/.vim/plugged')
 Plug 'luochen1990/rainbow'
+Plug 'niabie/vim-sb-complete'
 Plug 'niabie/vim-sb-complete2'
+Plug 'niabie/vim-sb-complete3'
 Plug 'airblade/vim-gitgutter'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -104,7 +106,7 @@ let g:rainbow_conf = {
 \}
 
 " gitgutter ===================================================
-let g:gitgutter_max_signs=100
+let g:gitgutter_max_signs=300
  let g:gitgutter_sign_added='++'
  let g:gitgutter_sign_removed='->'
  let g:gitgutter_sign_modified='~~'
@@ -216,18 +218,21 @@ vnoremap p "ap
 nnoremap p "ap
 vnoremap d "ad
 nnoremap d "ad
+let g:sbcom1_active = 1
+let g:sbcom1_trigger = "<tab>"
+
 set pastetoggle=<F10>
-let g:sbcom2_active = 1
  
-au BufEnter * call MyView()
+au Filetype * call MyView()
 fun! MyView()
   if (expand("%") != "")
+    "echom expand("%")
     silent loadview
     au VimLeave * silent mkview
   endif
-   if (expand("%:e") == "swig")
-     set filetype=html
-   elseif (expand("%:e") == "styl")
-     set filetype=css
-   endif
+  if (expand("%:e") == "swig")
+    set filetype=html
+  elseif (expand("%:e") == "styl")
+    set filetype=css
+  endif
 endfun
