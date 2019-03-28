@@ -223,16 +223,23 @@ let g:sbcom1_trigger = "<tab>"
 
 set pastetoggle=<F10>
  
-au Filetype * call MyView()
+au BufEnter * call MyView()
 fun! MyView()
   if (expand("%") != "")
-    "echom expand("%")
-    silent loadview
-    au VimLeave * silent mkview
+    " echom expand("%")
+    if !isdirectory(expand("%"))
+      silent loadview
+      au VimLeave * silent mkview
+    endif
   endif
-  if (expand("%:e") == "swig")
+
+  if (expand("%:e") == "list")
+    set filetype=debsources
+  elseif (expand("%:e") == "swig")
     set filetype=html
   elseif (expand("%:e") == "styl")
     set filetype=css
+  elseif (expand("%:e") == "save")
+    set filetype=debsources
   endif
 endfun
