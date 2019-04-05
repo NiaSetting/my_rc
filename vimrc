@@ -218,12 +218,14 @@ vnoremap p "ap
 nnoremap p "ap
 vnoremap d "ad
 nnoremap d "ad
-let g:sbcom1_active = 1
-let g:sbcom1_trigger = "<tab>"
-
+let g:sbcom2_active = 1
+let g:sbcom2_trigger = "<tab>" 
+" let g:sbcom1_active = 1
+" let g:sbcom1_trigger = "`" 
+" let g:sbcom1_maxline = 10000
 set pastetoggle=<F10>
  
-au BufEnter * call MyView()
+au VimEnter * call MyView()
 fun! MyView()
   if (expand("%") != "")
     " echom expand("%")
