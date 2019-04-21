@@ -115,3 +115,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # oj
 PATH=$PATH:/home/lynx/问题求解/union_find/linux-x64/
+
+# java
+export JAVA_HOME=/usr/lib/jvm/jdk-11.0.2
+export CLASSPATH=.:$JAVA_HOME/lib
+export PATH=$PATH:$JAVA_HOME/bin
