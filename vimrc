@@ -210,8 +210,8 @@ nnoremap <c-a> ggVG
 noremap <c-c> "+Y
 vnoremap <c-c> "+Y
 inoremap <c-v> <esc>"+Pi
-inoremap {<cr> {}<left><cr><esc>O
 inoremap jk <esc>
+vnoremap jk <esc>
 vnoremap y "ay
 nnoremap y "ay
 vnoremap p "ap
@@ -239,9 +239,17 @@ fun! MyView()
     set filetype=debsources
   elseif (expand("%:e") == "swig")
     set filetype=html
+  elseif (expand("%:e") == "ejs")
+    set filetype=html
   elseif (expand("%:e") == "styl")
     set filetype=css
   elseif (expand("%:e") == "save")
     set filetype=debsources
+  endif
+
+  if (expand("%:e") != "md")
+    inoremap {<cr> {}<left><cr><esc>O
+  else
+    inoremap {<cr> {}<left><cr><backspace><esc>O
   endif
 endfun
