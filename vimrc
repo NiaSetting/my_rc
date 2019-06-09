@@ -205,7 +205,9 @@ set tags=tags;
 set autochdir
 "" ==================================
 
-" 自动补全
+nnoremap ; :
+nnoremap q: :
+
 nnoremap <c-a> ggVG
 noremap <c-c> "+Y
 vnoremap <c-c> "+Y
