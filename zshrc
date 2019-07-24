@@ -97,7 +97,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# powerline
 source $(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')
+
+# highlight
 #source ~/.config/zsh/incr*.zsh
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -105,8 +108,8 @@ source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
 
 # oslab
-export STUID=171240525
-export STUNAME=凌晨宇
+export STUID=0
+export STUNAME=0
 
 # qiniu qshell
 export PATH=$PATH:~/bucket
