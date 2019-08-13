@@ -54,14 +54,12 @@ source $VIMRUNTIME/menu.vim
 language messages zh_CN.utf-8
 
 " powerline========================
-set rtp+=/home/lynx/.local/lib/python2.7/site-packages/powerline/bindings/vim
+set rtp+=/home/lynx/.local/lib/python3.6/site-packages/powerline/bindings/vim
 
 " vim-plug =================================================
 call plug#begin('~/.vim/plugged')
 Plug 'luochen1990/rainbow'
-Plug 'niabie/vim-sb-complete'
 Plug 'niabie/vim-sb-complete2'
-Plug 'niabie/vim-sb-complete3'
 Plug 'airblade/vim-gitgutter'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # powerline
-source $(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')
+source $(pip3 show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')
 
 # highlight
 #source ~/.config/zsh/incr*.zsh
