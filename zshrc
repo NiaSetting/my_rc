@@ -102,7 +102,7 @@ source $(pip3 show powerline-status | awk '/Location:/{print $2 "/powerline/bind
 
 # highlight
 #source ~/.config/zsh/incr*.zsh
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # texlive
 PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
