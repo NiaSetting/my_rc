@@ -54,7 +54,7 @@ source $VIMRUNTIME/menu.vim
 language messages zh_CN.utf-8
 
 " powerline========================
-set rtp+=/home/lynx/.local/lib/python3.6/site-packages/powerline/bindings/vim
+set rtp+=/home/lynx/.local/lib/python3.7/site-packages/powerline/bindings/vim
 
 " vim-plug =================================================
 call plug#begin('~/.vim/plugged')
