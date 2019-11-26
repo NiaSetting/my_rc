@@ -37,14 +37,6 @@ set foldcolumn=0 " 设置折叠区域的宽度
 setlocal foldlevel=1 " 设置折叠层数为 1
 " nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 
-" 自定义设置 ===================================
-set expandtab " 不使用tab缩进
-set noignorecase " 便于补全精准
-
-syntax enable
-syntax on
-colorscheme my " 魔改的tokyo-metro
-
 " 解决中文乱码 ==================================
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin
 set enc=utf8
@@ -106,42 +98,30 @@ highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
 "   let g:gitgutter_sign_column_always = 1
 " endif
 
-" vim-latex ============================================
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-" set shellslash
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-" this is mostly a matter of taste. but LaTeX looks good with just a bit
-" of indentation.
-set sw=2
-" TIP: if you write your \label's as \label{fig:something}, then if you
-" type in \ref{fig: and press you will automatically cycle through
-" all the figure labels. Very useful!
-set iskeyword+=:
-let g:Tex_ViewRule_pdf = 'evince'
-
 " ctags =============================
 set tags=tags;
 set autochdir
 
+" 自定义设置 ===================================
+set expandtab " 不使用tab缩进
+set noignorecase " 便于补全精准
+
+syntax enable
+syntax on
+colorscheme my " 魔改的tokyo-metro
+
 " 键位配置 ===================================
+" 退出时防误触 ===================================
 nnoremap ; :
 nnoremap q: :
 
+" 快速复制粘贴,vim必需要支持粘贴功能 ===================================
 nnoremap <c-a> ggVG
 noremap <c-c> "+Y
+nnoremap <c-c> "+Y
 vnoremap <c-c> "+Y
+
+" 防止d删除后覆盖剪切板
 inoremap <c-v> <esc>"+Pi
 inoremap jk <esc>
 vnoremap jk <esc>
@@ -152,7 +132,7 @@ nnoremap p "ap
 vnoremap d "ad
 nnoremap d "ad
 
-" vim-sbcomplete ===================
+" vim-sbcomplete,自己写的插件 ===================
 let g:sbcom2_active = 1
 let g:sbcom2_trigger = "<tab>" 
 " let g:sbcom1_active = 1
@@ -160,7 +140,7 @@ let g:sbcom2_trigger = "<tab>"
 " let g:sbcom1_maxline = 10000
 set pastetoggle=<F10>
  
-" 特殊高亮 =====================================
+" 特殊文件类型高亮 =====================================
 au VimEnter * call MyView()
 fun! MyView()
   if (expand("%") != "")

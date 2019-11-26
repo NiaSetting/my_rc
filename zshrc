@@ -120,6 +120,15 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH=$PATH:/home/lynx/问题求解/union_find/linux-x64/
 
 # java
-export JAVA_HOME=/usr/lib/jvm/jdk-11.0.2
+export JAVA_HOME=/home/lynx/fuck_mount/AS/jre
+# export JAVA_HOME=/home/lynx/fuck_mount/java-se-8u40-ri
 export CLASSPATH=.:$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
+
+# ant
+# export ANT_DIR=/home/lynx/fuck_mount/apache-ant-1.10.7
+# export PATH=$PATH:$ANT_DIR/bin
+
+# opencv android
+export ANDROID_NDK=/home/lynx/fuck_mount/Android/SDK/ndk/20.1.5948944
+export ANDROID_SDK=/home/lynx/fuck_mount/Android/SDK
