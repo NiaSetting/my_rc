@@ -71,7 +71,7 @@ let g:gitgutter_max_signs=300
  let g:gitgutter_sign_modified_removed='+>'
 set updatetime=400
 
-au VimEnter * :GitGutterLineHighlightsEnable
+au VimEnter * :GitGutterLineHighlightsDisable
 hi GitGutterAdd ctermfg=darkgreen ctermbg=232 cterm=BOLD
 " an added line
 hi GitGutterChange ctermfg=lightblue ctermbg=232 cterm=BOLD
@@ -79,6 +79,7 @@ hi GitGutterChange ctermfg=lightblue ctermbg=232 cterm=BOLD
 hi GitGutterDelete ctermfg=1 ctermbg=232 cterm=BOLD
 " at least one removed line
 hi GitGutterChangeDelete ctermfg=yellow ctermbg=232 cterm=BOLD
+
 " a changed line followed by at least one removed line
 highlight GitGutterAddLine ctermfg=none ctermbg=232
 " default: links to DiffAdd
