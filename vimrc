@@ -45,6 +45,36 @@ source $VIMRUNTIME/delmenu.vim " gvim菜单乱码
 source $VIMRUNTIME/menu.vim
 language messages zh_CN.utf-8
 
+" 自定义设置,必须要放在gitgutter之前 ===================================
+set expandtab " 不使用tab缩进
+set noignorecase " 便于补全精准
+
+syntax enable
+syntax on
+colorscheme my " 魔改的tokyo-metro
+
+" 键位配置 ===================================
+" 退出时防误触 ===================================
+nnoremap ; :
+nnoremap q: :
+
+" 快速复制粘贴,vim必需要支持粘贴功能 ===================================
+nnoremap <c-a> ggVG
+noremap <c-c> "+Y
+nnoremap <c-c> "+Y
+vnoremap <c-c> "+Y
+
+" 防止d删除后覆盖剪切板
+inoremap <c-v> <esc>"+Pi
+inoremap jk <esc>
+vnoremap jk <esc>
+vnoremap y "ay
+nnoremap y "ay
+vnoremap p "ap
+nnoremap p "ap
+vnoremap d "ad
+nnoremap d "ad
+
 " powerline========================
 set rtp+=/home/lynx/.local/lib/python3.7/site-packages/powerline/bindings/vim
 
@@ -102,36 +132,6 @@ highlight GitGutterChangeDeleteLine ctermfg=none ctermbg=232
 " ctags =============================
 set tags=tags;
 set autochdir
-
-" 自定义设置 ===================================
-set expandtab " 不使用tab缩进
-set noignorecase " 便于补全精准
-
-syntax enable
-syntax on
-colorscheme my " 魔改的tokyo-metro
-
-" 键位配置 ===================================
-" 退出时防误触 ===================================
-nnoremap ; :
-nnoremap q: :
-
-" 快速复制粘贴,vim必需要支持粘贴功能 ===================================
-nnoremap <c-a> ggVG
-noremap <c-c> "+Y
-nnoremap <c-c> "+Y
-vnoremap <c-c> "+Y
-
-" 防止d删除后覆盖剪切板
-inoremap <c-v> <esc>"+Pi
-inoremap jk <esc>
-vnoremap jk <esc>
-vnoremap y "ay
-nnoremap y "ay
-vnoremap p "ap
-nnoremap p "ap
-vnoremap d "ad
-nnoremap d "ad
 
 " vim-sbcomplete,自己写的插件 ===================
 let g:sbcom2_active = 1
