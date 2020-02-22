@@ -105,19 +105,18 @@ source $(pip3 show powerline-status | awk '/Location:/{print $2 "/powerline/bind
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # texlive
-PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
+# PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
 
 # oslab
-export STUID=0
-export STUNAME=0
+# export STUID=0
+# export STUNAME=0
 
 # qiniu qshell
-export PATH=$PATH:~/bucket
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH=$PATH:~/bucket
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # oj
-PATH=$PATH:/home/lynx/问题求解/union_find/linux-x64/
+# PATH=$PATH:/home/lynx/问题求解/union_find/linux-x64/
 
 # java
 export JAVA_HOME=/home/lynx/fuck_mount/AS/jre
@@ -132,3 +131,9 @@ export PATH=$PATH:$JAVA_HOME/bin
 # opencv android
 export ANDROID_NDK=/home/lynx/fuck_mount/Android/SDK/ndk/20.1.5948944
 export ANDROID_SDK=/home/lynx/fuck_mount/Android/SDK
+
+# opencv linux
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/home/lynx/fuck_mount/opencv/install_dir/3_4_5/lib/pkgconfig
+
+# opencv NISwGSP
+export OpenCV_DIR=$OpenCV_DIR:/home/lynx/fuck_mount/opencv/install_dir/3_4_5/share/OpenCV
