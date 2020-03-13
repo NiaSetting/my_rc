@@ -47,7 +47,6 @@ language messages zh_CN.utf-8
 " 自定义设置,必须要放在gitgutter之前 ===================================
 set expandtab " 不使用tab缩进
 set noignorecase " 便于补全精准
-set autoindent " 智能缩进
 
 syntax enable
 syntax on
