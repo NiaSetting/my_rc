@@ -163,7 +163,7 @@ fun! MyView()
     set filetype=debsources
   endif
 
-  if (expand("%:e") != "md")
+  if ((expand("%:e") != "md")&&(expand("%:e") != "cmm")&&(expand("%:e") != "l"))
     inoremap {<cr> {}<left><cr><esc>O
   else
     inoremap {<cr> {}<left><cr><backspace><esc>O

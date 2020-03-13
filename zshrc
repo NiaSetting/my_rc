@@ -105,7 +105,10 @@ source $(pip3 show powerline-status | awk '/Location:/{print $2 "/powerline/bind
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # texlive
-# PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
+PATH=$PATH:/home/lynx/fuck_mount/texlive/2019/bin/x86_64-linux
+
+# matlab
+PATH=$PATH:/home/lynx/fuck_mount/matlab2019b/bin
 
 # oslab
 # export STUID=0
