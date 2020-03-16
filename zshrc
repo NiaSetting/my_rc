@@ -122,7 +122,7 @@ PATH=$PATH:/home/lynx/fuck_mount/matlab2019b/bin
 # PATH=$PATH:/home/lynx/问题求解/union_find/linux-x64/
 
 # java
-export JAVA_HOME=/home/lynx/fuck_mount/AS/jre
+export JAVA_HOME=/home/lynx/fuck_mount/Android_Studio/jre
 # export JAVA_HOME=/home/lynx/fuck_mount/java-se-8u40-ri
 export CLASSPATH=.:$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
@@ -132,8 +132,8 @@ export PATH=$PATH:$JAVA_HOME/bin
 # export PATH=$PATH:$ANT_DIR/bin
 
 # opencv android
-export ANDROID_NDK=/home/lynx/fuck_mount/Android/SDK/ndk/20.1.5948944
-export ANDROID_SDK=/home/lynx/fuck_mount/Android/SDK
+export ANDROID_SDK=/home/lynx/fuck_mount/Android_SDK
+export ANDROID_NDK=$ANDROID_SDK/ndk/21.0.6113669 # 需要在SDK Manager里面预先安装ndk
 
 # opencv linux
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/home/lynx/fuck_mount/opencv/install_dir/3_4_5/lib/pkgconfig
