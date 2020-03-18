@@ -127,13 +127,19 @@ export JAVA_HOME=/home/lynx/fuck_mount/Android_Studio/jre
 export CLASSPATH=.:$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
-# ant
-# export ANT_DIR=/home/lynx/fuck_mount/apache-ant-1.10.7
-# export PATH=$PATH:$ANT_DIR/bin
+# opencv cmake
+export PATH=$PATH:/home/lynx/下载/cmake-3.9.0-Linux-x86_64/bin
+
+# opencv apache ant
+export ANT_DIR=/home/lynx/fuck_mount/ant/apache-ant-1.9.14
+export PATH=$PATH:$ANT_DIR/bin
 
 # opencv android
 export ANDROID_SDK=/home/lynx/fuck_mount/Android_SDK
-export ANDROID_NDK=$ANDROID_SDK/ndk/21.0.6113669 # 需要在SDK Manager里面预先安装ndk
+# export ANDROID_NDK=$ANDROID_SDK/ndk/20.1.5948944 # Opencv 4
+# export ANDROID_NDK=/home/lynx/fuck_mount/android-ndk-r12b # Opencv 3
+export ANDROID_NDK=/home/lynx/fuck_mount/android-ndk-r10 # Opencv 3
+export PATH=$PATH:$ANDROID_SDK/cmake/3.10.2.4988404/bin
 
 # opencv linux
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/home/lynx/fuck_mount/opencv/install_dir/3_4_5/lib/pkgconfig
