@@ -102,10 +102,10 @@ source $(pip3 show powerline-status | awk '/Location:/{print $2 "/powerline/bind
 
 # highlight
 #source ~/.config/zsh/incr*.zsh
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # texlive
-PATH=$PATH:/home/lynx/fuck_mount/texlive/2019/bin/x86_64-linux
+PATH=$PATH:/home/lynx/fuck_mount/texlive/2020/bin/x86_64-linux
 
 # matlab
 PATH=$PATH:/home/lynx/fuck_mount/matlab2019b/bin
@@ -128,12 +128,12 @@ export CLASSPATH=.:$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
 # opencv apache ant
-export ANT_DIR=/home/lynx/fuck_mount/ant/apache-ant-1.9.14
-export PATH=$PATH:$ANT_DIR/bin
+# export ANT_DIR=/home/lynx/fuck_mount/ant/apache-ant-1.9.14
+# export PATH=$PATH:$ANT_DIR/bin
 
 # opencv android
-export ANDROID_SDK=/home/lynx/fuck_mount/Android_SDK
-export ANDROID_NDK=/home/lynx/fuck_mount/Android_SDK/ndk/20.1.5948944 # Opencv 4
+# export ANDROID_SDK=/home/lynx/fuck_mount/Android_SDK
+# export ANDROID_NDK=/home/lynx/fuck_mount/Android_SDK/ndk/20.1.5948944 # Opencv 4
 # export ANDROID_NDK=/home/lynx/fuck_mount/android-ndk-r12b # Opencv 3
 # export ANDROID_NDK=/home/lynx/fuck_mount/android-ndk-r10 # Opencv 3
 
