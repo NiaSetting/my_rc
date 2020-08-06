@@ -75,7 +75,7 @@ vnoremap d "ad
 nnoremap d "ad
 
 " powerline========================
-set rtp+=/home/lynx/.local/lib/python3.7/site-packages/powerline/bindings/vim
+set rtp+=/home/lynx/.local/lib/python3.8/site-packages/powerline/bindings/vim
 
 " vim-plug =================================================
 call plug#begin('~/.vim/plugged')

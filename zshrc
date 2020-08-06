@@ -99,6 +99,8 @@ source $ZSH/oh-my-zsh.sh
 
 # powerline
 source $(pip3 show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')
+export PATH=$PATH:$HOME/.local/bin/
+export PATH=$PATH:$HOME/.local/lib/python3.8/site-packages/scripts
 
 # highlight
 #source ~/.config/zsh/incr*.zsh
